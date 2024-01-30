@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astronomy Information Result</title>
+</head>
+<body>
+    <h2>Astronomy Information:</h2>
+
+    {% if form_submitted %}
+        {% if astronomy_data %}
+            <ul>
+                <li>Sunrise: {{ astronomy_data.sunrise }}</li>
+                <li>Sunset: {{ astronomy_data.sunset }}</li>
+                <li>Moonrise: {{ astronomy_data.moonrise }}</li>
+                <li>Moonset: {{ astronomy_data.moonset }}</li>
+                <li>Current Time: {{ astronomy_data.current_time }}</li>
+                <li>Solar Noon: {{ astronomy_data.solar_noon }}</li>
+                <li>Day Length: {{ astronomy_data.day_length }}</li>
+                <li>Longitude: {{ astronomy_data.location.longitude }}</li>
+                <li>Latitude: {{ astronomy_data.location.latitude }}</li>
+            </ul>
+        {% else %}
+            <p>Error retrieving astronomy information.</p>
+        {% endif %}
+    {% else %}
+        <p>Submit the form to get astronomy information.</p>
+    {% endif %}
+</body>
+</html>
